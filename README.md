@@ -1,7 +1,33 @@
-# Vue 3 + Vite
+# Seleksi Beasiswa Bootcamp dan Kerja di Sanbercode
+> Nama: Ridwan Ramadhan <br>
+Technical Skill Assessment (Frontend) dengan penggunaan Vue.JS, Vite, Bulma. 
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Menjalankan Frontend
 
-## Recommended IDE Setup
+##### Jalankan Program Backend & Mulai Server Frontend
+`npm run dev`
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## List Path Backend
+> Port: http://localhost:5173/
+
+## Tampilan Frontend
+
+Halaman Login
+
+Halaman Register
+
+Halaman Home
+
+Halaman Daftar Kategori
+
+Halaman Daftar Buku Berdasar Kategori
+
+Halaman Tambah Kategori
+
+Halaman Update Kategori
+
+Halaman Daftar Buku
+
+Halaman Tambah Buku
+
+Halaman Update Kategori
