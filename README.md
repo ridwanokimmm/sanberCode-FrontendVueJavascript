@@ -1,9 +1,11 @@
 # Seleksi Beasiswa Bootcamp dan Kerja di Sanbercode
 > Nama: Ridwan Ramadhan <br>
+Technical Skill Assessment (Frontend) dengan penggunaan Vue.JS, Vite, Bulma. 
+<br><br>
 > User Default: <br>
 > username: admin <br>
 > password: admin <br>
-Technical Skill Assessment (Frontend) dengan penggunaan Vue.JS, Vite, Bulma. 
+
 
 ## Menjalankan Frontend
 
