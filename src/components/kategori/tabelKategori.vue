@@ -22,31 +22,31 @@
           <td class="has-text-centered">{{ item.name }}</td>
           <td class="has-text-centered">
             <router-link :to="{ name: 'daftarBuku', params: { category_id: item.id } }">
-                <button class="button is-info">
-                  <span class="icon is-small">
-                    <i class="fas fa-eye"></i>
-                  </span>
-                  <span>Lihat List Buku</span>
-                </button>
-              </router-link>
+              <button class="button is-info">
+                <span class="icon is-small">
+                  <i class="fas fa-eye"></i>
+                </span>
+                <span>Lihat List Buku</span>
+              </button>
+            </router-link>
           </td>
           <td class="column has-text-centered" colspan="2">
- 
-              <router-link :to="{ name: 'ubahKategori', params: { id: item.id } }">
-                <button class="button is-warning">
-                  <span class="icon is-small">
-                    <i class="fas fa-pen"></i>
-                  </span>
-                  <span>Edit</span>
-                </button>
-              </router-link>
-              <button style="margin-left: 2ch;" class="button is-danger" @click="hapusKategori(item.id)">
-                <span>Delete</span>
+
+            <router-link :to="{ name: 'ubahKategori', params: { id: item.id } }">
+              <button class="button is-warning">
                 <span class="icon is-small">
-                  <i class="fas fa-times"></i>
+                  <i class="fas fa-pen"></i>
                 </span>
+                <span>Edit</span>
               </button>
-            
+            </router-link>
+            <button style="margin-left: 2ch;" class="button is-danger" @click="hapusKategori(item.id)">
+              <span>Delete</span>
+              <span class="icon is-small">
+                <i class="fas fa-times"></i>
+              </span>
+            </button>
+
           </td>
         </tr>
       </tbody>
@@ -73,8 +73,15 @@ export default {
   methods: {
     // Mengambil Kategori Backend
     async ambilKategori() {
+      console.log(localStorage.getItem('token'))
+      const token = localStorage.getItem('token');
+      this.token = token;
       try {
-        const response = await axios.get("http://localhost:8080/categories");
+        const response = await axios.get("http://localhost:8080/categories", {
+          headers: {
+            Authorization: token
+          }
+        });
         this.items = response.data;
       } catch (err) {
         console.log(err);
@@ -84,7 +91,13 @@ export default {
     // Menghapus Kategori Backend
     async hapusKategori(id) {
       try {
-        await axios.delete(`http://localhost:8080/categories/${id}`);
+        const token = localStorage.getItem('token');
+        this.token = token;
+        await axios.delete(`http://localhost:8080/categories/${id}`, {
+          headers: {
+            Authorization: token
+          }
+        });
         this.ambilKategori();
       } catch (err) {
         console.log(err);
