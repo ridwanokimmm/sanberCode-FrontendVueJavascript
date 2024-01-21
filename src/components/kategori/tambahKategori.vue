@@ -27,9 +27,15 @@ export default {
   methods: {
     // Menambahkan Data Kategori
     async tambahKategori() {
+      const token = localStorage.getItem('token');
+      this.token = token;
       try {
         await axios.post("http://localhost:8080/categories", {
           name: this.name,
+        }, {
+          headers: {
+            Authorization: token
+          }
         });
         this.name = "";
         this.productPrice = "";
