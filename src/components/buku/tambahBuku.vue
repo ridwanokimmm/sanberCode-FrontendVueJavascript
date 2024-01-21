@@ -102,8 +102,14 @@ export default {
   },
   methods: {
     async ambilKategori() {
+      const token = localStorage.getItem('token');
+      this.token = token;
       try {
-        const response = await axios.get("http://localhost:8080/categories");
+        const response = await axios.get("http://localhost:8080/categories", {
+          headers: {
+            Authorization: token
+          }
+        });
         this.items = response.data;
       } catch (err) {
         console.log(err);
@@ -113,7 +119,19 @@ export default {
       this.selectedFile = event.target.files[0];
     },
     fetchFileInformation() {
-      fetch('http://localhost:8080/fileInfo')
+      const url = 'http://localhost:8080/fileInfo';
+
+      // Gantilah 'token' dengan nilai token yang benar
+      const token = localStorage.getItem('token');
+
+      // Objek konfigurasi untuk headers
+      const requestOptions = {
+        headers: {
+          Authorization: token, // Gunakan Bearer jika menggunakan token JWT
+        },
+      };
+
+      fetch(url, requestOptions)
         .then(response => response.json())
         .then(data => {
           this.uploadedFile = data;
@@ -122,6 +140,7 @@ export default {
           console.error('Error fetching file information:', error);
         });
     },
+
     ambilTahunValid() {
       const tahunKini = new Date().getFullYear();
       const mulaiTahun = (tahunKini - 3) - 41; // Range Tahun Yang Sebagai Validasi Frontend
@@ -133,9 +152,11 @@ export default {
 
       return opsiTahun;
     },
-    
+
     async simpanBuku() {
 
+      const token = localStorage.getItem('token');
+      this.token = token;
       if (!this.selectedFile) {
         alert('Pilih file yang ingin diunggah.');
         return;
@@ -147,6 +168,9 @@ export default {
       // Menunggu fetch selesai
       const response = await fetch('http://localhost:8080/upload', {
         method: 'POST',
+        headers: {
+            Authorization: token
+          },
         body: formData
       });
 
@@ -166,6 +190,10 @@ export default {
           total_page: this.total_page,
           category_id: this.category_id,
 
+        }, {
+          headers: {
+            Authorization: token
+          }
         });
         this.title = "";
         this.description = "";
