@@ -4,8 +4,8 @@ Technical Skill Assessment (Frontend) dengan penggunaan Vue.JS, Vite, Bulma.
 
 ## Menjalankan Frontend
 
-##### Jalankan Program Backend & Node Module telah terinstal dan dapat Mulai Server Frontend
-`npm run dev`
+##### Jalankan Program Backend -> Install Modulee & Mulai Server Frontend
+`npm install && npm run dev`
 
 ## List Path Backend
 > Port: http://localhost:5173/
