@@ -104,7 +104,19 @@ export default {
       this.selectedFile = event.target.files[0];
     },
     fetchFileInformation() {
-      fetch('http://localhost:8080/fileInfo')
+      const url = 'http://localhost:8080/fileInfo';
+
+      // Gantilah 'token' dengan nilai token yang benar
+      const token = localStorage.getItem('token');
+
+      // Objek konfigurasi untuk headers
+      const requestOptions = {
+        headers: {
+          Authorization: token, // Gunakan Bearer jika menggunakan token JWT
+        },
+      };
+
+      fetch(url, requestOptions)
         .then(response => response.json())
         .then(data => {
           this.uploadedFile = data;
@@ -114,8 +126,14 @@ export default {
         });
     },
     async getKategori() {
+      const token = localStorage.getItem('token');
+      this.token = token;
       try {
-        const response = await axios.get("http://localhost:8080/categories");
+        const response = await axios.get("http://localhost:8080/categories", {
+          headers: {
+            Authorization: token
+          }
+        });
         this.items = response.data;
       } catch (err) {
         console.log(err);
@@ -134,10 +152,16 @@ export default {
     },
     // Get Product By Id
     async getBukuById() {
+      const token = localStorage.getItem('token');
+      this.token = token;
       try {
         const response = await axios.get(
           `http://localhost:8080/books/${this.$route.params.id}`
-        );
+          , {
+            headers: {
+              Authorization: token
+            }
+          });
         this.title = response.data.title;
         this.description = response.data.description;
         this.image_url = response.data.image_url;
@@ -153,6 +177,9 @@ export default {
     // Update product
     async simpanBuku() {
 
+      const token = localStorage.getItem('token');
+      this.token = token;
+      
       if (!this.selectedFile) {
         alert('Pilih Foto Unggah Cover Baru.');
         return;
@@ -165,6 +192,9 @@ export default {
       // Menunggu fetch selesai
       const response = await fetch('http://localhost:8080/upload', {
         method: 'POST',
+        headers: {
+          Authorization: token
+        },
         body: formData
       });
 
@@ -186,7 +216,11 @@ export default {
             total_page: this.total_page,
             category_id: this.category_id,
           }
-        );
+          , {
+            headers: {
+              Authorization: token
+            }
+          });
         this.productName = "";
         this.$router.push("/listBuku");
       } catch (err) {
