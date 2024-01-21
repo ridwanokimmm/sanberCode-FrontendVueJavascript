@@ -132,8 +132,14 @@ export default {
 
   methods: {
     async ambilKategori() {
+      const token = localStorage.getItem('token');
+      this.token = token;
       try {
-        const response = await axios.get("http://localhost:8080/categories");
+        const response = await axios.get("http://localhost:8080/categories", {
+          headers: {
+            Authorization: token
+          }
+        });
         this.categories = response.data;
       } catch (err) {
         console.log(err);
@@ -146,8 +152,14 @@ export default {
     },
     // Mengambil data buku dengan fitur filter
     async ambilBuku() {
+      const token = localStorage.getItem('token');
+      this.token = token;
       try {
-        const response = await axios.get(`http://localhost:8080/categories/${this.$route.params.category_id}/books`, { params: this.filter });
+        const response = await axios.get(`http://localhost:8080/categories/${this.$route.params.category_id}/books`, {
+          headers: {
+            Authorization: token
+          }, params: this.filter
+        });
         this.items = response.data;
       } catch (err) {
         console.log(err);
@@ -160,8 +172,14 @@ export default {
 
     // Menghapus Buku
     async deleteProduct(id) {
+      const token = localStorage.getItem('token');
+      this.token = token;
       try {
-        await axios.delete(`http://localhost:8080/books/${id}`);
+        await axios.delete(`http://localhost:8080/books/${id}`, {
+          headers: {
+            Authorization: token
+          }
+        });
         this.ambilBuku();
       } catch (err) {
         console.log(err);
