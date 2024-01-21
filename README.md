@@ -4,7 +4,7 @@ Technical Skill Assessment (Frontend) dengan penggunaan Vue.JS, Vite, Bulma.
 
 ## Menjalankan Frontend
 
-##### Jalankan Program Backend & Mulai Server Frontend
+##### Jalankan Program Backend & Node Module telah terinstal dan dapat Mulai Server Frontend
 `npm run dev`
 
 ## List Path Backend
@@ -28,11 +28,13 @@ Halaman Daftar Buku Berdasar Kategori
 ![screencapture-localhost-5173-daftarBuku-1-2024-01-21-17_52_14](https://github.com/ridwanokimmm/sanberCode-FrontendTechnicalTest/assets/34051898/4ff82240-e00c-46f3-beb6-597dfcfc821d)
 
 Halaman Tambah Kategori
-
-Halaman Update Kategori
+![screencapture-localhost-5173-ubahKategori-1-2024-01-21-17_52_36](https://github.com/ridwanokimmm/sanberCode-FrontendTechnicalTest/assets/34051898/8e24177a-7672-48d4-b2c7-74d14b4d3355)
 
 Halaman Daftar Buku
+![Control-V (5)](https://github.com/ridwanokimmm/sanberCode-FrontendTechnicalTest/assets/34051898/fb98a8a4-9f7a-4d16-98c7-903ed97ffae0)
 
 Halaman Tambah Buku
+![screencapture-localhost-5173-tambahBuku-2024-01-21-17_54_52](https://github.com/ridwanokimmm/sanberCode-FrontendTechnicalTest/assets/34051898/af683547-1289-4c8a-b2ca-c5a376029398)
 
 Halaman Update Kategori
+![screencapture-localhost-5173-ubahBuku-5-2024-01-21-17_55_05](https://github.com/ridwanokimmm/sanberCode-FrontendTechnicalTest/assets/34051898/785f52bc-f96e-44b4-af60-667cdcec4900)
