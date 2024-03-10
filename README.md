@@ -1,4 +1,4 @@
-# Seleksi Beasiswa Bootcamp dan Kerja di Sanbercode
+# Seleksi Beasiswa Bootcamp Sanbercode
 > Nama: Ridwan Ramadhan <br>
 Technical Skill Assessment (Frontend) dengan penggunaan Vue.JS, Vite, Bulma. 
 <br><br>
